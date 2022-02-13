@@ -1,5 +1,7 @@
 #pragma once
 
+#include "socket_headers.h"
+
 namespace socket_wrapper
 {
 
@@ -7,7 +9,7 @@ class Socket
 {
 public:
     Socket(int domain, int type, int protocol);
-    Socket(int socket_descriptor);
+    Socket(SocketDescriptorType socket_descriptor);
     virtual ~Socket();
 
 public:
@@ -15,14 +17,16 @@ public:
 
 public:
     operator bool() const { return opened(); }
-    operator int() const { return socket_descriptor_; }
+    operator SocketDescriptorType() const { return socket_descriptor_; }
+
+public:
+    int close();
 
 protected:
     void open(int domain, int type, int protocol);
-    int close();
 
 private:
-    int socket_descriptor_;
+    SocketDescriptorType socket_descriptor_;
 };
 
 } // socket_wrapper

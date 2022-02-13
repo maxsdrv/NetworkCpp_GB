@@ -30,7 +30,7 @@ static inline void rtrim(std::string &s)
 
 int main(int argc, char const *argv[])
 {
-    std::cout << "Homework started\n";
+    std::cout << "Homework started\n" << "and new test\n";
 
     if (argc != 2)
     {
