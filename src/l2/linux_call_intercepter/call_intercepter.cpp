@@ -13,6 +13,10 @@ extern "C"
 #include <cstdio>
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
+#include <fstream>
+
+#include "SFileLogger.h"
 
 
 static void init (void) __attribute__ ((constructor));
@@ -31,7 +35,7 @@ static int socket_fd = -1;
 void init(void)
 {
     srand(time(nullptr));
-    printf("Interceptor library loaded.\n");
+    printf("Interceptor library loaded. \n");
 
     old_close = reinterpret_cast<close_t>(dlsym(RTLD_NEXT, "close"));
     old_write = reinterpret_cast<write_t>(dlsym(RTLD_NEXT, "write"));
@@ -62,6 +66,8 @@ ssize_t write(int fd, const void *buf, size_t count)
     {
         printf("> write() on the socket was called with a string!\n");
         printf("New buffer = [");
+
+        SFileLogger::getInstance().OpenLogFile("test_log.txt");
 
         for (size_t i = 0; i < count - 1; ++i)
         {

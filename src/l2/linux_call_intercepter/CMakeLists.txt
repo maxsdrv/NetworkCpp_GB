@@ -4,7 +4,13 @@ project(call-intercepter C CXX)
 
 #set(CMAKE_COMPILER_IS_GNUCC TRUE)
 
-add_library("${PROJECT_NAME}" SHARED call_intercepter.cpp)
+set(HWFiles)
+
+list(APPEND HWFiles
+        SFileLogger.h
+        SFileLogger.cpp)
+
+add_library("${PROJECT_NAME}" SHARED call_intercepter.cpp ${HWFiles})
 target_link_libraries("${PROJECT_NAME}" dl)
 set_property(TARGET "${PROJECT_NAME}" PROPERTY POSITION_INDEPENDENT_CODE ON)
 
