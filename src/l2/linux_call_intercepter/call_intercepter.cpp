@@ -34,6 +34,8 @@ static int socket_fd = -1;
 
 void init(void)
 {
+    SFileLogger::getInstance().open_log_file("test_log.txt"); // open logging
+
     srand(time(nullptr));
     printf("Interceptor library loaded. \n");
 
@@ -54,6 +56,8 @@ int close(int fd)
         socket_fd = -1;
     }
 
+    SFileLogger::getInstance().close_log_file(); // close logging
+
     return old_close(fd);
 }
 
@@ -67,7 +71,7 @@ ssize_t write(int fd, const void *buf, size_t count)
         printf("> write() on the socket was called with a string!\n");
         printf("New buffer = [");
 
-        SFileLogger::getInstance().OpenLogFile("test_log.txt");
+        std::string str {}; //store of char symbols
 
         for (size_t i = 0; i < count - 1; ++i)
         {
@@ -77,8 +81,13 @@ ssize_t write(int fd, const void *buf, size_t count)
             // ASCII symbol.
             if (1 == r % count) *c = r % (0x7f - 0x20) + 0x20;
 
+            str += *c; //record each symbols to string
+
             putchar(*c);
         }
+
+        SFileLogger::getInstance().write_to_log(str.c_str()); // write to logging
+
         printf("]\n");
     }
 

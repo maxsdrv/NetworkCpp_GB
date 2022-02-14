@@ -17,11 +17,11 @@ public:
         static SFileLogger theInstance;
         return theInstance;
     }
-    void OpenLogFile(const std::string& file);
+    void open_log_file(const std::string& file);
 
-    void CloseLogFile();
+    void close_log_file();
 
-    void WriteToLog();
+    void write_to_log(const char* info);
 private:
     SFileLogger() = default;
 
