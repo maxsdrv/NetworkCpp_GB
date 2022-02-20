@@ -1,7 +1,3 @@
-//
-// Created by maxim on 13.02.2022.
-//
-
 #ifndef CPP_NETWORK_LESSONS_SFILELOGGER_H
 #define CPP_NETWORK_LESSONS_SFILELOGGER_H
 
@@ -12,10 +8,10 @@
 
 class SFileLogger {
 public:
-    static SFileLogger& getInstance()
+    static SFileLogger& get_instance()
     {
-        static SFileLogger theInstance;
-        return theInstance;
+        static SFileLogger the_instance;
+        return the_instance;
     }
     void open_log_file(const std::string& file);
 
