@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "incorrect-udp-client",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "incorrect-udp-client::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-incorrect-udp-client-Debug-cc16863a5324fab6a3ff.json",
+					"name" : "incorrect-udp-client",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/maxim/Cpp/geek-brains/NetworkCpp/Homework/NetworkCpp_GB/src/l2/incorrect_udp_client/cmake-build-debug",
+		"source" : "/home/maxim/Cpp/geek-brains/NetworkCpp/Homework/NetworkCpp_GB/src/l2/incorrect_udp_client"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

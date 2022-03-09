@@ -1,0 +1,3 @@
+/home/maxim/Cpp/geek-brains/NetworkCpp/Homework/NetworkCpp_GB/src/l2/incorrect_udp_client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/maxim/Cpp/geek-brains/NetworkCpp/Homework/NetworkCpp_GB/src/l2/incorrect_udp_client/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/maxim/Cpp/geek-brains/NetworkCpp/Homework/NetworkCpp_GB/src/l2/incorrect_udp_client/cmake-build-debug/CMakeFiles/incorrect-udp-client.dir
