@@ -1,0 +1,150 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "socket_wrapper",
+					"jsonFile" : "directory-socket_wrapper-Debug-0f26022003c9152e33db.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "socket_wrapper",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "h3",
+					"childIndexes" : 
+					[
+						3
+					],
+					"jsonFile" : "directory-h3-Debug-40039d8bcb015a89d83a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "h3"
+				},
+				{
+					"build" : "h3/tcp-server",
+					"jsonFile" : "directory-h3.tcp-server-Debug-b1e5400ea09bdcae439f.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"parentIndex" : 2,
+					"projectIndex" : 3,
+					"source" : "h3/tcp-server",
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "cpp-network-lessons"
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "socket-wrapper",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"childIndexes" : 
+					[
+						3
+					],
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "cpp-network-homework3",
+					"parentIndex" : 0
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "tcp-server",
+					"parentIndex" : 2,
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "socket-wrapper::@e602be642bf73425fcfb",
+					"jsonFile" : "target-socket-wrapper-Debug-42f17964ad4b07a9d942.json",
+					"name" : "socket-wrapper",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "tcp-server::@e3e36d72a54c0f811e9d",
+					"jsonFile" : "target-tcp-server-Debug-a28537a9a87721323776.json",
+					"name" : "tcp-server",
+					"projectIndex" : 3
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug",
+		"source" : "/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/tcp-server.dir/main.cpp.o CMakeFiles/tcp-server.dir/TcpServer.cpp.o -o ../../bin/tcp-server  ../../socket_wrapper/libsocket-wrapper.a 
