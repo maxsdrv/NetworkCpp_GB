@@ -1,0 +1,28 @@
+project(client-server)
+cmake_minimum_required(VERSION 3.21)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)
+
+SET(SERVER_BUILD_PATH ${PROJECT_BINARY_DIR})
+
+SET(CMAKE_RUNTIME_OTPUT_DIRECTORY ${CLIENT_SERVER_BUILD_PATH}/bin)
+
+if (NOT DEFINED CMAKE_BUILD_TYPE)
+    SET(CMAKE_BUILD_TYPE "Debug")
+endif()
+
+
+add_subdirectory(client)
+add_subdirectory(server)
+add_subdirectory(socket_wrapper)
+
+
+
+
+
+
+
+
