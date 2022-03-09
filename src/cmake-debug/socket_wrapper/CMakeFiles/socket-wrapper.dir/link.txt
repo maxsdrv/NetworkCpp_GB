@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsocket-wrapper.a CMakeFiles/socket-wrapper.dir/src/socket.cpp.o CMakeFiles/socket-wrapper.dir/src/socket_wrapper.cpp.o
+/usr/bin/ranlib libsocket-wrapper.a
