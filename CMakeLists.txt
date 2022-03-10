@@ -15,9 +15,7 @@ if (NOT DEFINED CMAKE_BUILD_TYPE)
 endif()
 
 
-add_subdirectory(client)
-add_subdirectory(server)
-add_subdirectory(socket_wrapper)
+add_subdirectory(hw3)
 
 
 
