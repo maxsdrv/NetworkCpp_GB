@@ -6,7 +6,7 @@
 #include <iostream>
 #include <string>
 #include <unistd.h>
-#include <errno.h>
+#include <cerrno>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -14,7 +14,7 @@
 #include <arpa/inet.h>
 #include <sys/wait.h>
 #include <cstring>
-#include <signal.h>
+#include <csignal>
 
 #include <socket_wrapper/socket_headers.h>
 #include <socket_wrapper/socket_wrapper.h>
@@ -25,7 +25,7 @@ class TcpServer
 {
 public:
     explicit TcpServer(const socket_wrapper::Socket& socket, const int port);
-    ~TcpServer() { std::cout << "~TcpServer()"; }
+    ~TcpServer();
 
     void start();
     void init();

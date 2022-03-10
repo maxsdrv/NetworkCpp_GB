@@ -15,6 +15,11 @@ TcpServer::TcpServer(const socket_wrapper::Socket& socket, const int port) : m_s
 {
 }
 
+TcpServer::~TcpServer()
+{
+    std::cout << "~TcpServer()" << std::endl;
+}
+
 void TcpServer::start()
 {
     char buffer[256];
@@ -27,30 +32,27 @@ void TcpServer::start()
 
     std::cout << "Running echo server...\n" << std::endl;
 
+    // Get incoming connection through accept()
+    int newsocket {};
+    if ((newsocket = accept(m_socket, reinterpret_cast<sockaddr *>(&client_address), &client_address_len)) < 0)
+    {
+        throw std::runtime_error("Accept failed");
+    }
+
+    std::cout << "Connection is accepted now.\n";
+
     while (true)
     {
-        // Get incoming connection through accept()
-        int newsocket;
-        if ((newsocket = accept(m_socket, reinterpret_cast<sockaddr *>(&client_address), &client_address_len)) < 0)
-        {
-
-        }
-
-
         if (!newsocket)
         {
             throw std::runtime_error("ERROR on accept");
         }
 
         // Read content into buffer from an incoming client.
-        recv_len = recvfrom(m_socket, buffer, sizeof(buffer), 0,
-                            reinterpret_cast<sockaddr *>(&client_address),
-                            &client_address_len);
-
+        recv_len = recv(newsocket, &buffer, sizeof(buffer), 0);
 
         if (recv_len > 0)
         {
-
             buffer[recv_len] = '\0';
             std::cout
                     << "Client with address "
@@ -63,22 +65,24 @@ void TcpServer::start()
                     << recv_len
                     << "]:\n'''\n"
                     << buffer
-                    << "\n'''";
-
-
+                    << "\n'''\n";
 
             // Send same content back to the client ("echo").
-            sendto(m_socket, buffer, recv_len, 0, reinterpret_cast<const sockaddr *>(&client_address),
-                   client_address_len);
-        }
-        else
-        {
-            std::cerr << m_sock_wrap.get_last_error_string() << std::endl;
-            return;
+            if (send(newsocket, &buffer, recv_len, 0) < 0)
+            {
+                std::cerr << "Message cannot be send!!!" << std::endl;
+                break;
+            }
         }
 
-        std::cout << std::endl;
+        else
+        {
+            std::cerr << "Connection has broken\n";
+            break;
+        }
     }
+    close (newsocket);
+    std::cout << "Connection has closed" << std::endl;
 }
 
 void TcpServer::init()
@@ -130,3 +134,4 @@ void TcpServer::bind_socket()
     }
     listen(m_socket, 5); //prepare a socket for waiting
 }
+
