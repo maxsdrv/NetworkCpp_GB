@@ -46,7 +46,7 @@ void TcpClient::start_msg()
 {
     std::string msg;
     buffer.resize(MAX_RECV_BUFFER_SIZE);
-    std::cout << "CONNECTED::-> " << m_host_name << "\"..." << std::endl;
+    std::cout << "CONNECTED::-> ' " << m_host_name << "\'..." << std::endl;
 
     while (true)
     {
@@ -57,26 +57,66 @@ void TcpClient::start_msg()
             break;
         }
 
-        std::cout << "Sending message to server\n";
+        std::cout << "Sending message to server [ " << msg << " ] ... \n";
 
-        write(m_socket, &buffer, buffer.size());
-        buffer.resize(MAX_RECV_BUFFER_SIZE);
-        read(m_socket, &buffer, buffer.size());
-
-        std::cout << "From Server\n";
-
-        for (const auto& i : buffer)
+        if (!send_request(m_socket, msg))
         {
-            std::cout << i;
-        }
-
-        if ((std::strncmp(msg.c_str(), "exit", 4)) == 0)
-        {
-            std::cout << "Client exit ... \n";
+            std::cerr << m_wrapper.get_last_error_string() << std::endl;
             break;
         }
+
+        std::cout << "Request was sent, reading responce..." << std::endl;
+
+        auto recv_bytes = recv(m_socket, buffer.data(), buffer.size() - 1, 0);
+
+        if (recv_bytes > 0)
+        {
+            buffer[recv_bytes] = '\0';
+            std::cout << "-------------\n" << std::string(buffer.begin(), std::next(buffer.begin(), recv_bytes)) << std::endl;
+
+            if (msg == "exit")
+            {
+                std::cout << "Client exit ... \n";
+                break;
+            }
+
+            continue;
+        }
+        else if (-1 == recv_bytes)
+        {
+            if (EINTR == errno) continue;
+            if (0 == errno) break;
+        }
+
     }
 
+}
+bool TcpClient::send_request(socket_wrapper::Socket &sock, const std::string& msg)
+{
+    ssize_t bytes_count = 0;
+    size_t msg_pos = 0;
+    auto const msg_buffer = &(msg.c_str()[0]);
+    auto const msg_length = msg.length();
+
+    while (true)
+    {
+        if ((bytes_count = send(m_socket, msg_buffer + msg_pos, msg_length - msg_pos, 0)) < 0)
+        {
+            if (EINTR == errno) continue;
+        }
+        else
+        {
+            if (!bytes_count) return false;
+
+            msg_pos += bytes_count;
+
+            if (msg_pos >= msg_length)
+            {
+                break;
+            }
+        }
+    }
+    return true;
 }
 
 

@@ -24,6 +24,7 @@ public:
 
     void init();
     void start_msg();
+    bool send_request(socket_wrapper::Socket& sock, const std::string& msg);
 
 private:
     socket_wrapper::Socket m_socket;

@@ -36,7 +36,7 @@ void TcpServer::start()
     int newsocket {};
     if ((newsocket = accept(m_socket, reinterpret_cast<sockaddr *>(&client_address), &client_address_len)) < 0)
     {
-        throw std::runtime_error("Accept failed");
+        throw std::runtime_error("ACCEPT::FAILED");
     }
 
     std::cout << "Connection is accepted now.\n";
@@ -45,7 +45,7 @@ void TcpServer::start()
     {
         if (!newsocket)
         {
-            throw std::runtime_error("ERROR on accept");
+            throw std::runtime_error("ERROR::ACCEPT");
         }
 
         // Read content into buffer from an incoming client.
@@ -70,14 +70,14 @@ void TcpServer::start()
             // Send same content back to the client ("echo").
             if (send(newsocket, &buffer, recv_len, 0) < 0)
             {
-                std::cerr << "Message cannot be send!!!" << std::endl;
+                std::cerr << "MESSAGE::CANNOT::SEND" << std::endl;
                 break;
             }
         }
 
         else
         {
-            std::cerr << "Connection has broken\n";
+            std::cerr << "CONNECTION::BROKEN\n";
             break;
         }
     }
@@ -103,7 +103,7 @@ void TcpServer::init()
 
     if (check_socket() < 0)
     {
-        throw std::runtime_error("ERROR opening socket");
+        throw std::runtime_error("ERROR::OPENING::SOCKET");
     }
 
     m_addr =
@@ -130,7 +130,7 @@ void TcpServer::bind_socket()
     {
         std::cerr << m_sock_wrap.get_last_error_string() << std::endl;
 
-        throw std::runtime_error("Bind error");
+        throw std::runtime_error("BIND::ERROR");
     }
     listen(m_socket, 5); //prepare a socket for waiting
 }
