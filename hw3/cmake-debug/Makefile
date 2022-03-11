@@ -57,10 +57,10 @@ RM = /home/maxim/CLion-2021.3.3/clion-2021.3.3/bin/cmake/linux/bin/cmake -E rm -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src
+CMAKE_SOURCE_DIR = /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug
+CMAKE_BINARY_DIR = /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/CMakeFiles /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -126,7 +126,7 @@ socket-wrapper: cmake_check_build_system
 
 # fast build rule for target.
 socket-wrapper/fast:
-	$(MAKE) $(MAKESILENT) -f socket_wrapper/CMakeFiles/socket-wrapper.dir/build.make socket_wrapper/CMakeFiles/socket-wrapper.dir/build
+	$(MAKE) $(MAKESILENT) -f hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/build.make hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/build
 .PHONY : socket-wrapper/fast
 
 #=============================================================================
@@ -139,8 +139,21 @@ tcp-server: cmake_check_build_system
 
 # fast build rule for target.
 tcp-server/fast:
-	$(MAKE) $(MAKESILENT) -f h3/tcp-server/CMakeFiles/tcp-server.dir/build.make h3/tcp-server/CMakeFiles/tcp-server.dir/build
+	$(MAKE) $(MAKESILENT) -f hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/build.make hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/build
 .PHONY : tcp-server/fast
+
+#=============================================================================
+# Target rules for targets named tcp-client
+
+# Build rule for target.
+tcp-client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tcp-client
+.PHONY : tcp-client
+
+# fast build rule for target.
+tcp-client/fast:
+	$(MAKE) $(MAKESILENT) -f hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/build.make hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/build
+.PHONY : tcp-client/fast
 
 # Help Target
 help:
@@ -151,6 +164,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... socket-wrapper"
+	@echo "... tcp-client"
 	@echo "... tcp-server"
 .PHONY : help
 

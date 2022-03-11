@@ -1,4 +1,4 @@
-/home/maxim/CLion-2021.3.3/clion-2021.3.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src
+/home/maxim/CLion-2021.3.3/clion-2021.3.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug
+-- Build files have been written to: /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug

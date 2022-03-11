@@ -54,125 +54,184 @@ RM = /home/maxim/CLion-2021.3.3/clion-2021.3.3/bin/cmake/linux/bin/cmake -E rm -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src
+CMAKE_SOURCE_DIR = /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug
+CMAKE_BINARY_DIR = /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: socket_wrapper/all
-all: h3/all
+all: hw3/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: socket_wrapper/preinstall
-preinstall: h3/preinstall
+preinstall: hw3/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: socket_wrapper/clean
-clean: h3/clean
+clean: hw3/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory h3
+# Directory level rules for directory hw3
 
 # Recursive "all" directory target.
-h3/all: h3/tcp-server/all
-.PHONY : h3/all
+hw3/all: hw3/socket_wrapper/all
+hw3/all: hw3/h3/all
+.PHONY : hw3/all
 
 # Recursive "preinstall" directory target.
-h3/preinstall: h3/tcp-server/preinstall
-.PHONY : h3/preinstall
+hw3/preinstall: hw3/socket_wrapper/preinstall
+hw3/preinstall: hw3/h3/preinstall
+.PHONY : hw3/preinstall
 
 # Recursive "clean" directory target.
-h3/clean: h3/tcp-server/clean
-.PHONY : h3/clean
+hw3/clean: hw3/socket_wrapper/clean
+hw3/clean: hw3/h3/clean
+.PHONY : hw3/clean
 
 #=============================================================================
-# Directory level rules for directory h3/tcp-server
+# Directory level rules for directory hw3/h3
 
 # Recursive "all" directory target.
-h3/tcp-server/all: h3/tcp-server/CMakeFiles/tcp-server.dir/all
-.PHONY : h3/tcp-server/all
+hw3/h3/all: hw3/h3/tcp-server/all
+hw3/h3/all: hw3/h3/tcp-client/all
+.PHONY : hw3/h3/all
 
 # Recursive "preinstall" directory target.
-h3/tcp-server/preinstall:
-.PHONY : h3/tcp-server/preinstall
+hw3/h3/preinstall: hw3/h3/tcp-server/preinstall
+hw3/h3/preinstall: hw3/h3/tcp-client/preinstall
+.PHONY : hw3/h3/preinstall
 
 # Recursive "clean" directory target.
-h3/tcp-server/clean: h3/tcp-server/CMakeFiles/tcp-server.dir/clean
-.PHONY : h3/tcp-server/clean
+hw3/h3/clean: hw3/h3/tcp-server/clean
+hw3/h3/clean: hw3/h3/tcp-client/clean
+.PHONY : hw3/h3/clean
 
 #=============================================================================
-# Directory level rules for directory socket_wrapper
+# Directory level rules for directory hw3/h3/tcp-client
 
 # Recursive "all" directory target.
-socket_wrapper/all: socket_wrapper/CMakeFiles/socket-wrapper.dir/all
-.PHONY : socket_wrapper/all
+hw3/h3/tcp-client/all: hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/all
+.PHONY : hw3/h3/tcp-client/all
 
 # Recursive "preinstall" directory target.
-socket_wrapper/preinstall:
-.PHONY : socket_wrapper/preinstall
+hw3/h3/tcp-client/preinstall:
+.PHONY : hw3/h3/tcp-client/preinstall
 
 # Recursive "clean" directory target.
-socket_wrapper/clean: socket_wrapper/CMakeFiles/socket-wrapper.dir/clean
-.PHONY : socket_wrapper/clean
+hw3/h3/tcp-client/clean: hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/clean
+.PHONY : hw3/h3/tcp-client/clean
 
 #=============================================================================
-# Target rules for target socket_wrapper/CMakeFiles/socket-wrapper.dir
+# Directory level rules for directory hw3/h3/tcp-server
+
+# Recursive "all" directory target.
+hw3/h3/tcp-server/all: hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/all
+.PHONY : hw3/h3/tcp-server/all
+
+# Recursive "preinstall" directory target.
+hw3/h3/tcp-server/preinstall:
+.PHONY : hw3/h3/tcp-server/preinstall
+
+# Recursive "clean" directory target.
+hw3/h3/tcp-server/clean: hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/clean
+.PHONY : hw3/h3/tcp-server/clean
+
+#=============================================================================
+# Directory level rules for directory hw3/socket_wrapper
+
+# Recursive "all" directory target.
+hw3/socket_wrapper/all: hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/all
+.PHONY : hw3/socket_wrapper/all
+
+# Recursive "preinstall" directory target.
+hw3/socket_wrapper/preinstall:
+.PHONY : hw3/socket_wrapper/preinstall
+
+# Recursive "clean" directory target.
+hw3/socket_wrapper/clean: hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/clean
+.PHONY : hw3/socket_wrapper/clean
+
+#=============================================================================
+# Target rules for target hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir
 
 # All Build rule for target.
-socket_wrapper/CMakeFiles/socket-wrapper.dir/all:
-	$(MAKE) $(MAKESILENT) -f socket_wrapper/CMakeFiles/socket-wrapper.dir/build.make socket_wrapper/CMakeFiles/socket-wrapper.dir/depend
-	$(MAKE) $(MAKESILENT) -f socket_wrapper/CMakeFiles/socket-wrapper.dir/build.make socket_wrapper/CMakeFiles/socket-wrapper.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/CMakeFiles --progress-num=1,2,3 "Built target socket-wrapper"
-.PHONY : socket_wrapper/CMakeFiles/socket-wrapper.dir/all
+hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/all:
+	$(MAKE) $(MAKESILENT) -f hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/build.make hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/depend
+	$(MAKE) $(MAKESILENT) -f hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/build.make hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles --progress-num=1,2,3 "Built target socket-wrapper"
+.PHONY : hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/all
 
 # Build rule for subdir invocation for target.
-socket_wrapper/CMakeFiles/socket-wrapper.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 socket_wrapper/CMakeFiles/socket-wrapper.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/CMakeFiles 0
-.PHONY : socket_wrapper/CMakeFiles/socket-wrapper.dir/rule
+hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles 0
+.PHONY : hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/rule
 
 # Convenience name for target.
-socket-wrapper: socket_wrapper/CMakeFiles/socket-wrapper.dir/rule
+socket-wrapper: hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/rule
 .PHONY : socket-wrapper
 
 # clean rule for target.
-socket_wrapper/CMakeFiles/socket-wrapper.dir/clean:
-	$(MAKE) $(MAKESILENT) -f socket_wrapper/CMakeFiles/socket-wrapper.dir/build.make socket_wrapper/CMakeFiles/socket-wrapper.dir/clean
-.PHONY : socket_wrapper/CMakeFiles/socket-wrapper.dir/clean
+hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/clean:
+	$(MAKE) $(MAKESILENT) -f hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/build.make hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/clean
+.PHONY : hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/clean
 
 #=============================================================================
-# Target rules for target h3/tcp-server/CMakeFiles/tcp-server.dir
+# Target rules for target hw3/h3/tcp-server/CMakeFiles/tcp-server.dir
 
 # All Build rule for target.
-h3/tcp-server/CMakeFiles/tcp-server.dir/all: socket_wrapper/CMakeFiles/socket-wrapper.dir/all
-	$(MAKE) $(MAKESILENT) -f h3/tcp-server/CMakeFiles/tcp-server.dir/build.make h3/tcp-server/CMakeFiles/tcp-server.dir/depend
-	$(MAKE) $(MAKESILENT) -f h3/tcp-server/CMakeFiles/tcp-server.dir/build.make h3/tcp-server/CMakeFiles/tcp-server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/CMakeFiles --progress-num=4,5,6 "Built target tcp-server"
-.PHONY : h3/tcp-server/CMakeFiles/tcp-server.dir/all
+hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/all: hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/all
+	$(MAKE) $(MAKESILENT) -f hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/build.make hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/depend
+	$(MAKE) $(MAKESILENT) -f hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/build.make hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles --progress-num=7,8,9 "Built target tcp-server"
+.PHONY : hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/all
 
 # Build rule for subdir invocation for target.
-h3/tcp-server/CMakeFiles/tcp-server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/CMakeFiles 6
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 h3/tcp-server/CMakeFiles/tcp-server.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/CMakeFiles 0
-.PHONY : h3/tcp-server/CMakeFiles/tcp-server.dir/rule
+hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles 0
+.PHONY : hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/rule
 
 # Convenience name for target.
-tcp-server: h3/tcp-server/CMakeFiles/tcp-server.dir/rule
+tcp-server: hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/rule
 .PHONY : tcp-server
 
 # clean rule for target.
-h3/tcp-server/CMakeFiles/tcp-server.dir/clean:
-	$(MAKE) $(MAKESILENT) -f h3/tcp-server/CMakeFiles/tcp-server.dir/build.make h3/tcp-server/CMakeFiles/tcp-server.dir/clean
-.PHONY : h3/tcp-server/CMakeFiles/tcp-server.dir/clean
+hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/clean:
+	$(MAKE) $(MAKESILENT) -f hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/build.make hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/clean
+.PHONY : hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/clean
+
+#=============================================================================
+# Target rules for target hw3/h3/tcp-client/CMakeFiles/tcp-client.dir
+
+# All Build rule for target.
+hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/all: hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/all
+	$(MAKE) $(MAKESILENT) -f hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/build.make hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/depend
+	$(MAKE) $(MAKESILENT) -f hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/build.make hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles --progress-num=4,5,6 "Built target tcp-client"
+.PHONY : hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/all
+
+# Build rule for subdir invocation for target.
+hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/CMakeFiles 0
+.PHONY : hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/rule
+
+# Convenience name for target.
+tcp-client: hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/rule
+.PHONY : tcp-client
+
+# clean rule for target.
+hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/clean:
+	$(MAKE) $(MAKESILENT) -f hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/build.make hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/clean
+.PHONY : hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

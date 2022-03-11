@@ -1,4 +1,4 @@
-# Install script for directory: /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src
+# Install script for directory: /home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,10 +43,8 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for each subdirectory.
-  include("/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/socket_wrapper/cmake_install.cmake")
-  include("/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/h3/cmake_install.cmake")
-
+  # Include the install script for the subdirectory.
+  include("/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/hw3/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -57,5 +55,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/src/cmake-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/maxim/Cpp/Other/my_code/homework_network/NetworkCpp_GB/hw3/cmake-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

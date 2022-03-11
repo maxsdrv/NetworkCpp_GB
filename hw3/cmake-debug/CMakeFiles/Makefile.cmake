@@ -24,11 +24,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/maxim/CLion-2021.3.3/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU.cmake"
   "/home/maxim/CLion-2021.3.3/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux.cmake"
   "/home/maxim/CLion-2021.3.3/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/UnixPaths.cmake"
+  "../../CMakeLists.txt"
   "../CMakeLists.txt"
   "CMakeFiles/3.21.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.21.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.21.1/CMakeSystem.cmake"
   "../h3/CMakeLists.txt"
+  "../h3/tcp-client/CMakeLists.txt"
   "../h3/tcp-server/CMakeLists.txt"
   "../socket_wrapper/CMakeLists.txt"
   )
@@ -42,13 +44,16 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "socket_wrapper/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "h3/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "h3/tcp-server/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "hw3/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "hw3/socket_wrapper/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "hw3/h3/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "hw3/h3/tcp-server/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "hw3/h3/tcp-client/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "socket_wrapper/CMakeFiles/socket-wrapper.dir/DependInfo.cmake"
-  "h3/tcp-server/CMakeFiles/tcp-server.dir/DependInfo.cmake"
+  "hw3/socket_wrapper/CMakeFiles/socket-wrapper.dir/DependInfo.cmake"
+  "hw3/h3/tcp-server/CMakeFiles/tcp-server.dir/DependInfo.cmake"
+  "hw3/h3/tcp-client/CMakeFiles/tcp-client.dir/DependInfo.cmake"
   )
