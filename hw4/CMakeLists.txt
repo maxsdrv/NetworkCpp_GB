@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(async-multithread-homework)
+project(cpp-network-lessons)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
@@ -8,7 +8,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 if (MSVC)
     set(CMAKE_CXX_STANDARD 20)
 else()
-    set(CMAKE_CXX_STANDARD 20)
+    set(CMAKE_CXX_STANDARD 17)
 endif()
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -26,9 +26,7 @@ set(LINK_SEARCH_START_STATIC ON)
 set(BUILD_SHARED_LIBS OFF)
 # set(CMAKE_EXE_LINKER_FLAGS "-static")
 
-file(GLOB homework LIST_DIRECTORIES true "src")
 add_subdirectory("socket_wrapper")
+add_subdirectory("server4.1")
 
-foreach(lesson ${homework})
-  add_subdirectory("${homework}")
-endforeach()
+

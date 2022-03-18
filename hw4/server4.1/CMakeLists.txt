@@ -11,10 +11,15 @@ set(HEADER)
 
 list(APPEND SOURCE
         main.cpp
-        )
+        Server.cpp
+        Client.cpp
+        ReadableFormat.cpp)
 
 list(APPEND HEADER
-        )
+        Server.h
+        Client.h
+        CommonFunction.h
+        ReadableFormat.h)
 
 source_group(source FILES ${HEADER}} ${SOURCE})
 
