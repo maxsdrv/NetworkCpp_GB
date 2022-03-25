@@ -43,39 +43,40 @@ bool Server::send_file2(const fs::path &file_path, int _size)
 
     std::cout << "size = " << ReadableFormat{fs::file_size(file_path)} << std::endl;
 
-    if (fs::file_size(file_path) < _size) return false;
-
-    if (!file_stream)
+    if (fs::file_size(file_path) < _size)
     {
         std::cerr
-            << "Size of package which you"
-               " want transfer greater then"
-               " file size exists" << std::endl;
+            << "File size = " << fs::file_size(file_path)
+            << "\n Request size = " << _size
+            << "\n";
+        return false;
     }
+
+    if (!file_stream) return false;
 
     std::cout << "Sending file " << file_path << "..." << std::endl;
+    std::cout << "Request size = " << _size << std::endl;
 
     // Transform file in parts
-    const uint16_t package = 4096;
-    if (_size < package)
+
+    while (_size > 0)
     {
-        std::cerr
-            << "SIZE::FILE::PACKAGE::ERROR\n"
-            << " Size package which you would "
-            << "transfer must be greater than 4096 bytes\n" << std::endl;
-        assert(_size >= package);
+        file_stream.read(buffer.data(), static_cast<int>(buffer.size()));
+        if (!send_buffer(buffer)) return false;
+        _size -= static_cast<int>(buffer.size());
+        std::cout << "Download file = " << ReadableFormat{fs::file_size(file_path) - _size} << '\n';
     }
 
-    auto iter = _size / package;
-    auto rest_file = fs::file_size(file_path) % _size;
+    /*auto iter = _size / package;
+    auto rest_file = fs::file_size(file_path) % _size;*/
 
-    for (size_t i = 0; i < iter; ++i)
+    /*for (size_t i = 0; i < iter; ++i)
     {
         file_stream.read(buffer.data(), buffer.size());
         if (!send_buffer(buffer)) return false;
-    }
+    }*/
 
-    std::cout << "Rest file for download = " << ReadableFormat{(fs::file_size(file_path) + rest_file) - _size} << std::endl;
+   /* std::cout << "Rest file for download = " << ReadableFormat{(fs::file_size(file_path) + rest_file) - _size} << std::endl;
 
     fs::resize_file(file_path, (fs::file_size(file_path) + rest_file) - _size);
     if (fs::file_size(file_path) < package)
@@ -83,7 +84,7 @@ bool Server::send_file2(const fs::path &file_path, int _size)
         file_stream.readsome(buffer.data(), buffer.size());
         if (!send_buffer(buffer)) return false;
         std::cout << "The entire file transfered successfull\n";
-    }
+    }*/
 
     return true;
 }
