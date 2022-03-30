@@ -26,13 +26,10 @@ class TcpServer
 public:
     explicit TcpServer(const socket_wrapper::Socket& socket, const int port);
     ~TcpServer();
-
     void start();
     void init();
-
     bool check_gai();
     int check_socket();
-
     void bind_socket();
 
 private:
